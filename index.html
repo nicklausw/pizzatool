@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      * {
+        background-color: black;
+        color: white;
+        font-family: 'Helvetica', 'Arial', sans-serif;
+      }
+      .main {
+        display: block;
+        width: 90%;
+        margin: auto;
+      }
+      input {
+        width: 50px;
+      }
+      td {
+        padding-left: 20px;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      function refreshData() {
+        var totalGrams = Number($('#totalGramsInput').val());
+        var water = Number($('#waterInput').val());
+        var yeast = Number($('#yeastInput').val());
+        var salt =  Number($('#saltInput').val());
+        var sugar = Number($('#sugarInput').val());
+        var oil =   Number($('#oilInput').val());
+        
+        var percentSum = 100 + water + yeast + salt + sugar + oil;
+        var flourGrams = (100 * totalGrams) / percentSum;
+        var waterGrams = flourGrams * (water / 100);
+        var yeastGrams = flourGrams * (yeast / 100);
+        var saltGrams = flourGrams * (salt / 100);
+        var sugarGrams = flourGrams * (sugar / 100);
+        var oilGrams = flourGrams * (oil / 100);
+        
+        document.getElementById("flourGrams").textContent = flourGrams.toFixed(2);
+        document.getElementById("waterGrams").textContent = waterGrams.toFixed(2);
+        document.getElementById("yeastGrams").textContent = yeastGrams.toFixed(2);
+        document.getElementById("saltGrams").textContent  = saltGrams.toFixed(2);
+        document.getElementById("sugarGrams").textContent = sugarGrams.toFixed(2);
+        document.getElementById("oilGrams").textContent   = oilGrams.toFixed(2);
+
+      }
+      $(document).ready(function() {
+        // keep our defaults every time
+        $("#totalGramsInput").val(2400);
+        $("#waterInput").val(62);
+        $("#yeastInput").val(0.4);
+        $("#saltInput").val(2);
+        $("#sugarInput").val(1.2);
+        $("#oilInput").val(3.4);
+
+        const input = document.querySelector("input");
+        input.addEventListener("change", refreshData);
+        refreshData();
+      });
+    </script>
+  </head>
+  <body>
+    <div class="main">
+      <h1 style="text-align: center;">
+        PizzaTool
+      </h1>
+      <table style="max-width: 500px; margin: auto;">
+        <tr>
+          <td><b>Total Grams</b></td>
+          <td></td>
+          <td><input id="totalGramsInput"></td>
+        </tr>
+        <tr>
+          <td><b>Flour</b></td>
+          <td><i>100%</i></td>
+          <td><p id="flourGrams"></p></td>
+        </tr>
+        <tr>
+          <td>Water</td>
+          <td><input id="waterInput"></td>
+          <td><p id="waterGrams"></p></td>
+        </tr>
+        <tr>
+          <td>Yeast</td>
+          <td><input id="yeastInput"></td>
+          <td><p id="yeastGrams"></p></td>
+        </tr>
+        <tr>
+          <td>Salt</td>
+          <td><input id="saltInput"></td>
+          <td><p id="saltGrams"></p></td>
+        </tr>
+        <tr>
+          <td>Sugar</td>
+          <td><input id="sugarInput"></td>
+          <td><p id="sugarGrams"></p></td>
+        </tr>
+        <tr>
+          <td>Oil</td>
+          <td><input id="oilInput"></td>
+          <td><p id="oilGrams"></p></td>
+        </tr>
+      </table> 
+    </div>
+  </body>
+</html>
