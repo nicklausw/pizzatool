@@ -20,9 +20,19 @@
       input {
         width: 50px;
       }
+      .center {
+        padding-left: 35px;
+        padding-right: 35px;
+      }
+      p {
+        margin: 0;
+      }
       td {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      h1 {
+        margin-bottom: 0;
       }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -58,7 +68,7 @@
         $("#yeastInput").val(0.4);
         $("#saltInput").val(2);
         $("#sugarInput").val(1.2);
-        $("#oilInput").val(3.4);
+        $("#oilInput").val(4.5);
 
         const inputs = document.querySelectorAll("input");
         inputs.forEach((i) => {
@@ -71,42 +81,47 @@
   <body>
     <div class="main">
       <h1 style="text-align: center;">
-        PizzaTool
+        Nick&apos;s Pizza Tool
       </h1>
       <table style="max-width: 500px; margin: auto;">
         <tr>
-          <td><b>Total Grams</b></td>
           <td></td>
+          <td class="center" style="text-align: center;"><b>&percnt;</b></td>
+          <td style="text-align: center;"><b>g</b></td>
+        </tr>
+        <tr>
+          <td style="text-align: right;"><b>Total</b></td>
+          <td class="center"></td>
           <td><input id="totalGramsInput"></td>
         </tr>
         <tr>
-          <td><b>Flour</b></td>
-          <td><i>100%</i></td>
+          <td style="text-align: right;"><b>Flour</b></td>
+          <td class="center"><i>100&percnt;</i></td>
           <td><p id="flourGrams"></p></td>
         </tr>
         <tr>
-          <td>Water</td>
-          <td><input id="waterInput"></td>
+          <td style="text-align: right;"><b>Water</b></td>
+          <td class="center"><input id="waterInput"></td>
           <td><p id="waterGrams"></p></td>
         </tr>
         <tr>
-          <td>Yeast</td>
-          <td><input id="yeastInput"></td>
+          <td style="text-align: right;"><b>Yeast</b></td>
+          <td class="center"><input id="yeastInput"></td>
           <td><p id="yeastGrams"></p></td>
         </tr>
         <tr>
-          <td>Salt</td>
-          <td><input id="saltInput"></td>
+          <td style="text-align: right;"><b>Salt</b></td>
+          <td class="center"><input id="saltInput"></td>
           <td><p id="saltGrams"></p></td>
         </tr>
         <tr>
-          <td>Sugar</td>
-          <td><input id="sugarInput"></td>
+          <td style="text-align: right;"><b>Sugar</b></td>
+          <td class="center"><input id="sugarInput"></td>
           <td><p id="sugarGrams"></p></td>
         </tr>
         <tr>
-          <td>Oil</td>
-          <td><input id="oilInput"></td>
+          <td style="text-align: right;"><b>Oil</b></td>
+          <td class="center"><input id="oilInput"></td>
           <td><p id="oilGrams"></p></td>
         </tr>
       </table> 
