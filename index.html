@@ -35,15 +35,14 @@
         margin-bottom: 0;
       }
     </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
       function refreshData() {
-        var totalGrams = Number($('#totalGramsInput').val());
-        var water = Number($('#waterInput').val());
-        var yeast = Number($('#yeastInput').val());
-        var salt =  Number($('#saltInput').val());
-        var sugar = Number($('#sugarInput').val());
-        var oil =   Number($('#oilInput').val());
+        var totalGrams = Number(document.getElementById('totalGramsInput').value);
+        var water = Number(document.getElementById('waterInput').value);
+        var yeast = Number(document.getElementById('yeastInput').value);
+        var salt =  Number(document.getElementById('saltInput').value);
+        var sugar = Number(document.getElementById('sugarInput').value);
+        var oil =   Number(document.getElementById('oilInput').value);
         
         var percentSum = 100 + water + yeast + salt + sugar + oil;
         var flourGrams = (100 * totalGrams) / percentSum;
@@ -61,21 +60,17 @@
         document.getElementById("oilGrams").textContent   = oilGrams.toFixed(2);
       }
 
-      $(document).ready(function() {
+      window.onload = function() {
         // keep our defaults every time
-        $("#totalGramsInput").val(2400);
-        $("#waterInput").val(62);
-        $("#yeastInput").val(0.4);
-        $("#saltInput").val(2);
-        $("#sugarInput").val(1.2);
-        $("#oilInput").val(4.5);
-
-        const inputs = document.querySelectorAll("input");
-        inputs.forEach((i) => {
-          i.addEventListener("input", refreshData);
-        });
+        document.getElementById("totalGramsInput").value = 2400;
+        document.getElementById("waterInput").value = 62;
+        document.getElementById("yeastInput").value = 0.4;
+        document.getElementById("saltInput").value = 2;
+        document.getElementById("sugarInput").value = 1.2;
+        document.getElementById("oilInput").value = 4.5;
+        
         refreshData();
-      });
+      };
     </script>
   </head>
   <body>
@@ -92,7 +87,7 @@
         <tr>
           <td style="text-align: right;"><b>Total</b></td>
           <td class="center"></td>
-          <td><input id="totalGramsInput"></td>
+          <td><input id="totalGramsInput" oninput="refreshData()"></td>
         </tr>
         <tr>
           <td style="text-align: right;"><b>Flour</b></td>
@@ -101,27 +96,27 @@
         </tr>
         <tr>
           <td style="text-align: right;"><b>Water</b></td>
-          <td class="center"><input id="waterInput"></td>
+          <td class="center"><input id="waterInput" oninput="refreshData()"></td>
           <td><p id="waterGrams"></p></td>
         </tr>
         <tr>
           <td style="text-align: right;"><b>Yeast</b></td>
-          <td class="center"><input id="yeastInput"></td>
+          <td class="center"><input id="yeastInput" oninput="refreshData()"></td>
           <td><p id="yeastGrams"></p></td>
         </tr>
         <tr>
           <td style="text-align: right;"><b>Salt</b></td>
-          <td class="center"><input id="saltInput"></td>
+          <td class="center"><input id="saltInput" oninput="refreshData()"></td>
           <td><p id="saltGrams"></p></td>
         </tr>
         <tr>
           <td style="text-align: right;"><b>Sugar</b></td>
-          <td class="center"><input id="sugarInput"></td>
+          <td class="center"><input id="sugarInput" oninput="refreshData()"></td>
           <td><p id="sugarGrams"></p></td>
         </tr>
         <tr>
           <td style="text-align: right;"><b>Oil</b></td>
-          <td class="center"><input id="oilInput"></td>
+          <td class="center"><input id="oilInput" oninput="refreshData()"></td>
           <td><p id="oilGrams"></p></td>
         </tr>
       </table> 
