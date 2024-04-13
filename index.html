@@ -23,6 +23,7 @@
       .center {
         padding-left: 35px;
         padding-right: 35px;
+        text-align: center;
       }
       p {
         margin: 0;
@@ -59,8 +60,8 @@
         document.getElementById("saltGrams").textContent  = saltGrams.toFixed(2);
         document.getElementById("sugarGrams").textContent = sugarGrams.toFixed(2);
         document.getElementById("oilGrams").textContent   = oilGrams.toFixed(2);
-
       }
+      
       $(document).ready(function() {
         // keep our defaults every time
         $("#totalGramsInput").val(2400);
@@ -72,7 +73,7 @@
 
         const inputs = document.querySelectorAll("input");
         inputs.forEach((i) => {
-          i.addEventListener("change", refreshData);
+          i.addEventListener("input", refreshData);
         });
         refreshData();
       });
