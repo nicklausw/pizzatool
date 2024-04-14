@@ -42,15 +42,15 @@
       var saltOutput, sugarOutput, oilOutput;
 
       function refreshData() {
-        var totalGrams = Number(totalInput.value);
-        var water      = Number(waterInput.value);
-        var yeast      = Number(yeastInput.value);
-        var salt       = Number(saltInput.value);
-        var sugar      = Number(sugarInput.value);
-        var oil        = Number(oilInput.value);
+        var total = Number(totalInput.value);
+        var water = Number(waterInput.value);
+        var yeast = Number(yeastInput.value);
+        var salt  = Number(saltInput.value);
+        var sugar = Number(sugarInput.value);
+        var oil   = Number(oilInput.value);
         
         var percentSum = 100 + water + yeast + salt + sugar + oil;
-        var flourGrams = (100 * totalGrams) / percentSum;
+        var flourGrams = (100 * total) / percentSum;
         var waterGrams = flourGrams * (water / 100);
         var yeastGrams = flourGrams * (yeast / 100);
         var saltGrams  = flourGrams * (salt / 100);
